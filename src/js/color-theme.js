@@ -20,13 +20,12 @@ window.onload = () => {
 
 // переключение темы через чекбокс
 function onToggleChange() {
-  const userTheme = localStorage.getItem('theme');
+  const actualUserTheme = localStorage.getItem('theme');
   let chkbxValue = toggle.checked;
-  console.log(chkbxValue);
 
-  if (userTheme === Theme.LIGHT) {
+  if (actualUserTheme === Theme.LIGHT) {
     localStorage.setItem('chkbx-active', chkbxValue);
-    localStorage.removeItem(userTheme);
+    localStorage.removeItem(actualUserTheme);
     localStorage.setItem('theme', Theme.DARK);
 
     body.classList.remove(Theme.LIGHT);
@@ -34,7 +33,7 @@ function onToggleChange() {
     // console.log(localStorage.getItem('theme'));
   } else {
     localStorage.setItem('chkbx-active', chkbxValue);
-    localStorage.removeItem(userTheme);
+    localStorage.removeItem(actualUserTheme);
     localStorage.setItem('theme', Theme.LIGHT);
 
     body.classList.remove(Theme.DARK);
