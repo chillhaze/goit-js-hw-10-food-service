@@ -1,22 +1,23 @@
 import { Theme } from './constants';
+const funqAdd = require('./better-code.js');
 
 const body = document.querySelector('body');
 const toggle = document.querySelector('#theme-switch-toggle');
 toggle.addEventListener('change', onToggleChange);
 
 // установка темы при загрузке страницы
-window.onload = () => {
-  const actualUserTheme = localStorage.getItem('theme');
 
-  if (actualUserTheme === Theme.DARK) {
-    body.classList.add(Theme.DARK);
-    localStorage.setItem('theme', Theme.DARK);
-    toggle.checked = localStorage.getItem('chkbx-active');
-  } else {
-    body.classList.add(Theme.LIGHT);
-    localStorage.setItem('theme', Theme.LIGHT);
-  }
-};
+const actualUserTheme = localStorage.getItem('theme');
+
+if (actualUserTheme === Theme.DARK) {
+  body.classList.add(Theme.DARK);
+  localStorage.setItem('theme', Theme.DARK);
+  toggle.checked = localStorage.getItem('chkbx-active');
+  funqAdd();
+} else {
+  body.classList.add(Theme.LIGHT);
+  localStorage.setItem('theme', Theme.LIGHT);
+}
 
 // переключение темы через чекбокс
 function onToggleChange() {

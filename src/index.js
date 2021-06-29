@@ -4,6 +4,7 @@ import menuCards from './menu.json';
 import '../node_modules/modern-normalize/modern-normalize.css';
 import './sass/main.scss';
 import './js/color-theme.js';
+import './js/better-code.js';
 
 cardsTemplate(menuCards);
 
